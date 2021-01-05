@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+ <section>
+     <p>Реализовать класс, описывающий окружность. В классе должны быть следующие компоненты:</p>
+     <ul>
+         <li>поле, хранящее радиус окружности;</li>
+         <li>get-свойство, возвращающее радиус окружности;</li>
+         <li>set-свойство, устанавливающее радиус окружности;</li>
+         <li>get-свойство, возвращающее диаметр окружности;</li>
+         <li>метод, вычисляющий площадь окружности;</li>
+         <li>метод, вычисляющий длину окружности.</li>
+     </ul>
+     <p>Продемонстрировать работу свойств и методов. </p>
+<div class="flex"> 
+     <div>
+         <button onclick="getMyRagius()" >показать радиус окружности</button>
+    </div>
+    <div>
+        <input type="number" id="newRadius" placeholder="введи радиус"><br>
+        <button onclick="setNewRadius()">поменять радиус</button>
+    </div>
+</div>
+<div class="flex"> 
+    <div>
+        <button onclick="showDiameter()" >глянуть диаметр окружности</button>
+   </div>
+   <div>
+       <button onclick="showArea()">глянуть площу окружности</button>
+   </div>
+</div>
+<div class="flex"> 
+    <div>
+        <button onclick="showLength()">чекнуть длину окружности</button>
+   </div>
+    
+</div>
+     <p id="writeFild"></p>
+ </section>   
+
+
+ <section>
+     <p>Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:</p>
+     <ul>
+         <li>поле, которое хранит цвет маркера; </li>
+         <li>поле, которое хранит количество чернил в маркере (в процентах);</li>
+         <li>метод для печати (метод принимает строку и выводит текст соответствующим цветом; текст выводится до тех пор, пока в маркере есть чернила; один не пробельный символ – это 0,5% чернил в маркере).</li>
+     </ul>
+     <p>Реализовать класс, описывающий заправляющийся маркер, унаследовав его от простого маркера и добавив метод для заправки маркера.</p>
+     <p>Продемонстрировать работу написанных методов. </p>
+     <hr>
+     <p>одноразывый маркер</p>
+     <input type="text" onkeyup="writeTextMarker()" id="textForMarker" placeholder="пиши сюда текст">
+     <p id="markerBoard"></p>
+     <hr>
+     <p>маркер c дозаправкой</p>
+     <input type="text" onkeyup="writeCoolMarker()" id="textForCoolMarker" placeholder="пиши сюда текст">
+     <input type="number" id="add" placeholder="добавить чернил">
+     <p id="markerBoardCool"></p>
+ </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
