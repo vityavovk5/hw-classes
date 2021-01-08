@@ -91,53 +91,59 @@ function writeTextMarker() {
     document.getElementById('textForMarker').readOnly = true;
 }
 }
+function cleanBoard() {
+    let compareClean = document.getElementById("markerBoard");
+    while (compareClean.firstChild) {
+        compareClean.removeChild(compareClean.firstChild);
+    }
+}
+
 
 class RefuelingMarker extends Marker {
-    constructor(color, percent, refueling = 0) {
+    constructor(color, percent) {
         super(color, percent);
-        this.amountOfLnk = refueling;
+      
     }
     get colorText() {
         return this.colorMarker;
     }
-    get percentInMarker() {
-        return this.percentMarker;
+    get percentText() {
+        return this.percent;
     }
-    get quantityInMarker() {
-        return this.amountOfLnk;
+   
+    set refuelingPercent(value) {
+            this.percent = value;
     }
-    set refuelingMyMarker(refuelingAmount) {
-        if(this.percent = 100) {
-            alert("маркер полностью заправлен");
-        } else {
-            this.amountOfLnk = refuelingAmount;
-        }
-    }
-    // доделать
-    // get realQuantity() {
-    //     if(this.amountOfLnk + this.percent > 100){
-    //         return Number(100);
-    //     } else {
-    //         return this.amountOfLnk + this.percent;
-    //     }
-    // }
+    set changeColorText(newColor) {
+        this.color = newColor;
+}
 }
 
 let colorMarker = new RefuelingMarker;
   
 function writeCoolMarker() {
     let textToMarker = document.getElementById("textForCoolMarker").value;
-    let fild = document.getElementById("markerBoardCool");
+    let fild2 = document.getElementById("markerBoardCool");
     let textWithoutSpaces = textToMarker.split(' ').join('');
     if(textWithoutSpaces.length < colorMarker.percentMarker * 2) { 
         cleanCoolBoard()
-    fild.insertAdjacentHTML('beforeend', `<div style="color: ${colorMarker.colorText};">${textToMarker}</div>`);
+    fild2.insertAdjacentHTML('beforeend', `<div style="color: ${colorMarker.colorText};">${textToMarker}</div>`);
 } else {
+    document.getElementById("textForCoolMarker").value = "";
+    document.getElementById("textForCoolMarker").readOnly = true;
     alert("В маркере закончились чернила");
 }
-
 }
-
+function refresh() {
+    colorMarker.refuelingPercent = 100;
+    document.getElementById("textForCoolMarker").readOnly = false;
+}
+// function changeSelectColor() {
+//     let selectColor = document.getElementById("selectColor").value;
+//     colorMarker.changeColorText = "selectColor";
+//     console.log(selectColor);
+//     console.log(colorMarker.colorText);
+// }
 
 
 
@@ -145,12 +151,7 @@ function writeCoolMarker() {
 
 
 
-function cleanBoard() {
-    let compareClean = document.getElementById("markerBoard");
-    while (compareClean.firstChild) {
-        compareClean.removeChild(compareClean.firstChild);
-    }
-}
+ 
 function cleanCoolBoard() {
     let compareClean = document.getElementById("markerBoardCool");
     while (compareClean.firstChild) {
